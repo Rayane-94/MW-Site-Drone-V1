@@ -1,0 +1,93 @@
+/* A coder à partir d'indices */
+header {
+	grid-area: header;
+}
+
+nav {
+	grid-area: nav;
+}
+
+footer {
+	grid-area: footer;
+}
+
+aside {
+	grid-area: aside;
+}
+
+section {
+	grid-area: section;
+}
+
+
+
+body {
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 1fr 25%; /* 1fr : 1 fraction de l'espace restant */
+	grid-template-rows:	80px 40px minmax(400px, auto) auto;
+	grid-template-areas: 	"header header"
+							"nav nav"
+							"section aside"
+							"footer footer";
+	grid-column-gap: 0px;
+	/*grid-row-gap: 1px;*/
+}
+
+/* Une bordure pour 'voir' comment les blocs s'organisent */
+/* header, nav, footer, aside, section {
+    border : 1px solid grey;   
+} */
+
+nav {
+	display: grid;
+	grid-template-columns: repeat(4, 130px);
+	grid-template-rows: auto;
+	/*justify-content: center;*/
+	align-items: center;
+	column-gap: 50px; 
+	
+		
+	}
+
+
+
+footer {
+	padding: 5px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 50px;
+}
+
+/* Responsive: pour les écrans dont la largeur est inférieure à 800 px */
+@media screen and (orientation: portrait) {
+	body {
+		grid-template-columns: 100%;
+		grid-template-rows:	80px auto minmax(400px, auto) auto;
+		grid-template-areas: 	"header"
+								"nav"
+								"section"
+								"footer";
+	}
+	nav{
+		display: grid;
+		grid-template-columns: 100%;
+		grid-template-rows: repeat (4,auto);
+		
+	
+	}
+	
+	aside,nav{
+		 display: none; 
+	}
+
+	footer {
+		padding: 5px;
+		display: grid;
+		grid-template-columns: 1fr;
+		column-gap: 50px;
+		grid-template-rows: repeat(3,auto); 
+	}
+}
+
